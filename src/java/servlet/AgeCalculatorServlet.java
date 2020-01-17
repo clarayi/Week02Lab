@@ -40,25 +40,34 @@ public class AgeCalculatorServlet extends HttpServlet
         {
             resultString = "";
         }
-        else if(request.getParameter("age").equals(""))
+        else if(request.getParameter("age").equals(" "))
         {
             resultString = "!You must give your current age!";
         }
         else
         {
-            String ageString = request.getParameter("age");
-            int age = Integer.parseInt(ageString);
-            
-            if(age < 0)
+            try
             {
-               resultString = "!Invalid age. Age must be equal to or bigger than 0!";
+                String ageString = request.getParameter("age");
+                int age = Integer.parseInt(ageString);
+
+                if(age < 0)
+                {
+                   resultString = "!Invalid input. Age must be an integer equal to or bigger than 0!";
+                }
+                else
+                {
+                    resultString = "Your age next birthday will be " + (age + 1);
+                }
+
+                System.out.println("Age Entered : " + age);
             }
-            else
+            catch(NumberFormatException e)
             {
-                resultString = "Your age next birthday will be " + (age + 1);
+                e.printStackTrace();
+                resultString = "!Invalid input. Age must be an integer equal to or bigger than 0!";
             }
             
-            System.out.println("Age Entered : " + age);
         }
         
         request.setAttribute("result", resultString);

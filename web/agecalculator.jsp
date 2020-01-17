@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Week2 Lab - Calculators</title>
+        <title>Week2 Lab - Age Calculators</title>
     </head>
     <body>
         <h1>Age Calculator</h1>

@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author 810783
  */
-public class ArithmeticCalculatorServlet extends HttpServlet {
+public class ArithmeticCalculator extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -27,14 +27,15 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException 
     {
         response.setContentType("text/html;charset=UTF-8");
         
         System.out.println("ArithmeticCalculatorServlet is running.");
         
         String resultString = "";
-        System.out.println(request.getPart("first"));
+        System.out.println(request.getParameter("first"));
         
         if(request.getParameter("first") != null && request.getParameter("second") != null)
         {
