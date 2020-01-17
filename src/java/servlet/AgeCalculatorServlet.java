@@ -16,7 +16,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author 810783
  */
-public class AgeCalculatorServlet extends HttpServlet {
+public class AgeCalculatorServlet extends HttpServlet 
+{
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
