@@ -15,8 +15,8 @@
         <h1>Arithmetic Calculator</h1>
         <div>
             <form>
-                First: <input type="text" name="first" value="${first}" /><br>
-                Second: <input type="text" name="second" value="${second}" /><br>
+                First: <input type="text" name="first" value="${firstInput}" /><br>
+                Second: <input type="text" name="second" value="${secondInput}" /><br>
                 <input type="submit" name="add" value="+"/>
                 <input type="submit" name="subtract" value="-"/>
                 <input type="submit" name="multiply" value="*"/>

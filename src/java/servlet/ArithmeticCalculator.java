@@ -47,26 +47,26 @@ public class ArithmeticCalculator extends HttpServlet {
 
                 if(request.getParameter("add") != null)
                 {
-                    request.setAttribute("first", firstNum);
-                    request.setAttribute("second", secondNum);
+                    request.setAttribute("firstInput", firstNum);
+                    request.setAttribute("secondInput", secondNum);
                     resultNum = firstNum + secondNum;
                 }
                 else if(request.getParameter("subtract") != null)
                 {
-                    request.setAttribute("first", firstNum);
-                    request.setAttribute("second", secondNum);
+                    request.setAttribute("firstInput", firstNum);
+                    request.setAttribute("secondInput", secondNum);
                     resultNum = firstNum - secondNum;
                 }
                 else if(request.getParameter("multiply") != null)
                 {
-                    request.setAttribute("first", firstNum);
-                    request.setAttribute("second", secondNum);
+                    request.setAttribute("firstInput", firstNum);
+                    request.setAttribute("secondInput", secondNum);
                     resultNum = firstNum * secondNum;
                 }
                 else if(request.getParameter("divide") != null)
                 {
-                    request.setAttribute("first", firstNum);
-                    request.setAttribute("second", secondNum);
+                    request.setAttribute("firstInput", firstNum);
+                    request.setAttribute("secondInput", secondNum);
                     resultNum = firstNum / secondNum;
                 }
                 
@@ -75,20 +75,37 @@ public class ArithmeticCalculator extends HttpServlet {
             catch(ArithmeticException e)
             {
                 e.printStackTrace();
+                
+                request.setAttribute("firstInput", request.getParameter("first"));
+                request.setAttribute("secondInput", request.getParameter("second"));
+                
                 resultString = "Result: invalid.";
             }
             catch(NumberFormatException e)
             {
                 e.printStackTrace();
+                
+                request.setAttribute("firstInput", request.getParameter("first"));
+                request.setAttribute("secondInput", request.getParameter("second"));
+                
                 resultString = "Result: invalid.";
             }
         }
         else if(request.getParameter("first") == null && request.getParameter("second") == null)
         {
-            resultString = "Result: --";
+            resultString = "Result: ---";
         }
         else
         {
+            if(request.getParameter("first") == null)
+            {
+                request.setAttribute("secondInput", request.getParameter("second"));
+            }
+            else
+            {
+                request.setAttribute("firstInput", request.getParameter("first"));
+            }
+            
             resultString = "Result: invalid.";
         }
         

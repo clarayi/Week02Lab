@@ -15,7 +15,7 @@
         <h1>Age Calculator</h1>
         <div>
             <form>
-                Enter your age: <input type="number" name="age"/><br>
+                Enter your age: <input type="text" name="age" value="${ageInput}" /><br>
                 <input type="submit" name="nextButton" value="Age next birthday"/><br>
                 <div name="must">${result}</div><br>
                 <div name="arithmetic"><a href="arithmetic">Arithmetic Calculator</a></div>

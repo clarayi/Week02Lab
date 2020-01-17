@@ -40,7 +40,7 @@ public class AgeCalculatorServlet extends HttpServlet
         {
             resultString = "";
         }
-        else if(request.getParameter("age").equals(" "))
+        else if(request.getParameter("age").equals(""))
         {
             resultString = "!You must give your current age!";
         }
@@ -53,10 +53,12 @@ public class AgeCalculatorServlet extends HttpServlet
 
                 if(age < 0)
                 {
+                   request.setAttribute("ageInput", age);
                    resultString = "!Invalid input. Age must be an integer equal to or bigger than 0!";
                 }
                 else
                 {
+                    request.setAttribute("ageInput", age);
                     resultString = "Your age next birthday will be " + (age + 1);
                 }
 
@@ -65,6 +67,7 @@ public class AgeCalculatorServlet extends HttpServlet
             catch(NumberFormatException e)
             {
                 e.printStackTrace();
+                request.setAttribute("ageInput", request.getParameter("age"));
                 resultString = "!Invalid input. Age must be an integer equal to or bigger than 0!";
             }
             
